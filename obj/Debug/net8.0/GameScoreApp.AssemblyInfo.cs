@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GameScoreApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+981ab6ce7e145f1e2e8e5ca089f75bdd176b51f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("GameScoreApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GameScoreApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

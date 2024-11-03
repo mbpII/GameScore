@@ -1,36 +1,53 @@
-public class GameScoreCalculator
+public abstract class GameScoreCalculator
 {
-  private double pointSpread;
-  private double overUnder;
-  private double min = 190;  // Example default min
-  private double max = 240;  // Example default max
-  private double alpha = 0.4;  // Example default weight
-  private double beta = 0.6;   // Example default weight
+    protected double pointSpread;
+    protected double overUnder;
+    protected double alpha;
+    protected double beta;
+    protected double leagueAvg;
+    protected double teamAvg;
+    protected double team1Avg;
+    protected double team2Avg;
 
+    protected GameScoreCalculator(
+        double team1Average,
+        double team2Average,
+        double leagueAverage,
+        double scoringWeight,
+        double competitivenessWeight)
+    {
+        team1Avg = team1Average;
+        team2Avg = team2Average;
+        teamAvg = team1Avg + team2Avg;
+        leagueAvg = leagueAverage;
+        alpha = scoringWeight;
+        beta = competitivenessWeight;
+    }
 
-  private double CompScore(double pointSpread)
-  {
-    return 1 / (Math.Abs(pointSpread) + 1);
-  }
+    protected virtual double CompScore(double pointSpread)
+    {
+        return 1 / (Math.Abs(pointSpread) + 1);
+    }
 
-  private double NormPS(double overUnder, double max, double min)
-  {
-    return (overUnder - min) / (max - min);
-  }
+    protected virtual double NormPS(double overUnder, double teamAvg, double leagueAvg)
+    {
+        double normalizedScore = teamAvg / 2 / leagueAvg * (overUnder/leagueAvg*2);
+        return Math.Max(0, Math.Min(100, normalizedScore));
+    }
 
-  public double GameScore(double pointSpread, double overUnder)
-  {
-    double compScore = CompScore(pointSpread);
-    double normPS = NormPS(overUnder, min, max);
-    return (alpha * compScore) + (beta * normPS);
-  }
+    public virtual double GameScore(double pointSpread, double overUnder)
+    {
+        double compScore = CompScore(pointSpread);
+        double normPS = NormPS(overUnder, teamAvg, leagueAvg);
+        return (alpha * compScore) + (beta * normPS);
+    }
 
-  public (double, double) GetData()
-  {
-    Console.WriteLine("Enter Point Spread");
-    double pointSpread = Convert.ToDouble(Console.ReadLine());
-    Console.WriteLine("Enter Over/Under:");
-    double overUnder = Convert.ToDouble(Console.ReadLine());
-    return (pointSpread, overUnder);
-  }
+    public (double, double) GetData()
+    {
+        Console.WriteLine("Enter Point Spread");
+        double pointSpread = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter Over/Under:");
+        double overUnder = Convert.ToDouble(Console.ReadLine());
+        return (pointSpread, overUnder);
+    }
 } 

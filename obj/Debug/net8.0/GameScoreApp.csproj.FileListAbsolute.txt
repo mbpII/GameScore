@@ -1,12 +1,13 @@
-/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.GeneratedMSBuildEditorConfig.editorconfig
-/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.AssemblyInfoInputs.cache
-/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.AssemblyInfo.cs
-/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.csproj.CoreCompileInputs.cache
 /Users/matthewparks/code/tbd/GameScoreApp/bin/Debug/net8.0/GameScoreApp
 /Users/matthewparks/code/tbd/GameScoreApp/bin/Debug/net8.0/GameScoreApp.deps.json
 /Users/matthewparks/code/tbd/GameScoreApp/bin/Debug/net8.0/GameScoreApp.runtimeconfig.json
 /Users/matthewparks/code/tbd/GameScoreApp/bin/Debug/net8.0/GameScoreApp.dll
 /Users/matthewparks/code/tbd/GameScoreApp/bin/Debug/net8.0/GameScoreApp.pdb
+/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.AssemblyInfoInputs.cache
+/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.AssemblyInfo.cs
+/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.csproj.CoreCompileInputs.cache
+/Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.sourcelink.json
 /Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.dll
 /Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/refint/GameScoreApp.dll
 /Users/matthewparks/code/tbd/GameScoreApp/obj/Debug/net8.0/GameScoreApp.pdb
