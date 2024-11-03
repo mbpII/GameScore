@@ -1,18 +1,20 @@
 public abstract class GameScoreCalculator
 {
-    protected double team1Avg;
-    protected double team2Avg;
-    protected double teamAvg;
-    protected double leagueAvg;
+    protected double pointSpread;
+    protected double overUnder;
     protected double alpha;
     protected double beta;
+    protected double leagueAvg;
+    protected double teamAvg;
+    protected double team1Avg;
+    protected double team2Avg;
 
     protected GameScoreCalculator(
         double team1Average,
         double team2Average,
         double leagueAverage,
-        double scoringWeight = 0.3,
-        double competitivenessWeight = 0.7)
+        double scoringWeight,
+        double competitivenessWeight)
     {
         team1Avg = team1Average;
         team2Avg = team2Average;
@@ -22,18 +24,18 @@ public abstract class GameScoreCalculator
         beta = competitivenessWeight;
     }
 
-    private double CompScore(double pointSpread)
+    protected virtual double CompScore(double pointSpread)
     {
         return 1 / (Math.Abs(pointSpread) + 1);
     }
 
-    private double NormPS(double overUnder, double teamAvg, double leagueAvg)
+    protected virtual double NormPS(double overUnder, double teamAvg, double leagueAvg)
     {
-        double normalizedScore = teamAvg / 2 /leagueAvg * (overUnder/leagueAvg*2);
+        double normalizedScore = teamAvg / 2 / leagueAvg * (overUnder/leagueAvg*2);
         return Math.Max(0, Math.Min(100, normalizedScore));
     }
 
-    public double GameScore(double pointSpread, double overUnder)
+    public virtual double GameScore(double pointSpread, double overUnder)
     {
         double compScore = CompScore(pointSpread);
         double normPS = NormPS(overUnder, teamAvg, leagueAvg);

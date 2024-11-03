@@ -1,3 +1,19 @@
+# Build output directories
+bin/
+obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.suo
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.pdb
+*.cache
 # Debug directories
 [Dd]ebug/
 [Bb]in/
