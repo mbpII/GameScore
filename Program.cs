@@ -1,28 +1,39 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
+var builder = WebApplication.CreateBuilder(args);
 
-namespace GameScoreApp
+// Add services to the container.
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
 {
-    public class Program
+    c.SwaggerDoc("v1", new OpenApiInfo
     {
-        public static void Main(string[] args)
-        {
-            Console.WriteLine("Enter sport (basketball/football/soccer):");
-            string sport = Console.ReadLine() ?? "";
-        
-            try 
-            {
-                GameScoreCalculator calculator = GameScoreCalculatorFactory.CreateCalculator(sport);
-                (double pointSpread, double overUnder) = calculator.GetData();
-                double gameScore = calculator.GameScore(pointSpread, overUnder);
-                Console.WriteLine($"Game Quality Score is: {gameScore:F2}");
-            }
-            catch (ArgumentException ex)
-        
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-        }
-    }
-}
+        Title = "Game Score API",
+        Version = "v1"
+    });
+});
 
+var app = builder.Build();
+
+// Always enable Swagger for now
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Game Score API V1");
+    c.RoutePrefix = string.Empty;
+});
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+
+// Add this to verify the API is working
+app.MapGet("/test", () => "API is working!");
+
+app.Run();

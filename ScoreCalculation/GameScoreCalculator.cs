@@ -41,13 +41,4 @@ public abstract class GameScoreCalculator
         double normPS = NormPS(overUnder, teamAvg, leagueAvg);
         return (alpha * compScore) + (beta * normPS);
     }
-
-    public (double, double) GetData()
-    {
-        Console.WriteLine("Enter Point Spread");
-        double pointSpread = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Enter Over/Under:");
-        double overUnder = Convert.ToDouble(Console.ReadLine());
-        return (pointSpread, overUnder);
-    }
 } 

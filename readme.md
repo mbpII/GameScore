@@ -38,6 +38,6 @@ This project serves as an experiment to hone various technical skills while prov
 Contributions are welcome! If you have ideas, suggestions, or would like to participate in the development of this project, please feel free to reach out or submit a pull request.
 
 TODO
-[ ] - use factory design pattern to adapt the code for any more sports
-[ ] - automate further to use apis
+[x] - use factory design pattern to adapt the code for any more sports
+[] - automate further to use apis
 [ ] - host on the internet

@@ -1,14 +1,15 @@
 using System;
 
-public static class GameScoreCalculatorFactor
-{    public static GameScoreCalculator CreateCalculator(string sport)
+public static class GameScoreCalculatorFactory
+{
+    public static GameScoreCalculator CreateCalculator(string sport)
     {
         return sport.ToLower() switch
         {
             "basketball" => new BasketballScoreCalculator(),
             "football" => new FootballScoreCalculator(),
             "soccer" => new SoccerScoreCalculator(),
-            _ => throw new ArgumentException($"Unsupported sport: {sport}")
+            _ => throw new ArgumentException($"Sport type '{sport}' is not supported.")
         };
     }
 } 
